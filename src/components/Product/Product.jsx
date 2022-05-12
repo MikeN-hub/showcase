@@ -1,14 +1,14 @@
 import React from 'react'
 import './Product.scss'
 
-const Product = (props) => {
+const Product = ({product, addToCart}) => {
   const {
     mainId: id,
     displayName: name,
     displayDescription: description,
     displayAssets: image,
     price,
-  } = props
+  } = product
 
   return (
     <div className='Product'>
@@ -20,7 +20,9 @@ const Product = (props) => {
         <p className='description'>{description}</p>
       </div>
       <div className='price'>
-        <button>Купить</button>
+        <button onClick={() => addToCart({ id, name, description, image, price })}>
+          Купить
+        </button>
         <span>{price.regularPrice} руб.</span>
       </div>
     </div>

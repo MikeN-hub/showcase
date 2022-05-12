@@ -5,8 +5,10 @@ import Shop from './components/Shop/Shop'
 import './App.scss'
 
 function App() {
+  const [isModal, setIsModal] = useState(true);
+
   return (
-    <div className='App'>
+    <div className={`${isModal ? 'blured App' : 'App'}`}>
       <Header />
       <Shop />
       <Footer />

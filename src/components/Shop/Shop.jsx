@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import ProductList from '../ProductList/ProductList'
+import Cart from '../Cart/Cart'
 import './Shop.scss'
 
 const API_URL = process.env.REACT_APP_API_URL
@@ -8,6 +9,14 @@ const API_KEY = process.env.REACT_APP_API_KEY
 const Shop = () => {
   const [products, setProducts] = useState([])
   const [isLoading, setIsLoading] = useState(false)
+  const [quantity, setQuantity] = useState(0);
+  const [cart, setCart] = useState([]);
+
+  const addToCart = (product) => {
+    setQuantity(prev => prev + 1)
+    setCart([product, ...cart])
+  }
+  console.log(cart)
 
   useEffect(() => {
     const getProducts = async () => {
@@ -22,7 +31,12 @@ const Shop = () => {
     getProducts()
   }, [])
 
-  return <div className='Shop'><ProductList products={products}/></div>
+  return (
+    <div className='Shop'>
+      <ProductList products={products} addToCart={addToCart}/>
+      <Cart />
+    </div>
+  )
 }
 
 export default Shop
