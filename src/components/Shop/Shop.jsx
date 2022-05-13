@@ -11,12 +11,12 @@ const Shop = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [quantity, setQuantity] = useState(0);
   const [cart, setCart] = useState([]);
+  const [isModal, setIsModal] = useState(false)
 
   const addToCart = (product) => {
     setQuantity(prev => prev + 1)
     setCart([product, ...cart])
   }
-  console.log(cart)
 
   useEffect(() => {
     const getProducts = async () => {
@@ -34,7 +34,7 @@ const Shop = () => {
   return (
     <div className='Shop'>
       <ProductList products={products} addToCart={addToCart}/>
-      <Cart />
+      <Cart isModal={isModal} setIsModal={setIsModal}/>
     </div>
   )
 }

@@ -5,3 +5,10 @@
   z-index: 9;
   border: 1px solid black;
 }
+
+.close-btn {
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+  cursor: pointer;
+}
