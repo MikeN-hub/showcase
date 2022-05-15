@@ -1,7 +1,7 @@
 import React from 'react'
 import './Product.scss'
 
-const Product = ({product, addToCart}) => {
+const Product = ({ product, addToCart }) => {
   const {
     mainId: id,
     displayName: name,
@@ -11,7 +11,7 @@ const Product = ({product, addToCart}) => {
   } = product
 
   return (
-    <div className='Product'>
+    <div className='Product' onClick={() => addToCart({ id, name, price })}>
       <div className='image'>
         <img src={image[0].full_background} alt={name} width={246} />
       </div>
@@ -20,7 +20,9 @@ const Product = ({product, addToCart}) => {
         <p className='description'>{description}</p>
       </div>
       <div className='price'>
-        <button onClick={() => addToCart({ id, name, description, image, price })}>
+        <button
+          onClick={() => addToCart({ id, name, description, image, price })}
+        >
           Купить
         </button>
         <span>{price.regularPrice} руб.</span>

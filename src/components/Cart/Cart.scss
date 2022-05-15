@@ -1,14 +1,23 @@
 .Cart {
-  position: fixed;
-  top: 4rem;
-  right: 2rem;
-  z-index: 9;
-  border: 1px solid black;
-}
-
-.close-btn {
   position: absolute;
-  top: .5rem;
-  right: .5rem;
-  cursor: pointer;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.7);
+  .container {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    width: 600px;
+    height: 400px;
+    background-color: #fff;
+    .close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      cursor: pointer;
+    }
+  }
 }

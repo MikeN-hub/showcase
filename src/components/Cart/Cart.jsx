@@ -1,27 +1,21 @@
-import React from 'react'
-import { BsCart } from 'react-icons/bs'
-import Modal from '../Modal/Modal'
+import React, { useRef } from 'react'
 import { MdClose } from 'react-icons/md'
+
 import './Cart.scss'
 
-const Cart = ({ isModal, setIsModal }) => {
-  const clickHandle = () => {
-    setIsModal(true)
+const Cart = ({ showCartHandle }) => {
+  const containerElemRef = useRef()
+  const clickHandle = (e) => {
+    if(e.target !== containerElemRef.current) {
+      showCartHandle()
+    }
   }
   return (
     <div className='Cart' onClick={clickHandle}>
-      <div className='cart-image'>
-        <BsCart size={40} color={'green'} />
+      <div className='container' ref={containerElemRef}>
+        Cart
+        <MdClose className='close-btn' onClick={showCartHandle} />
       </div>
-      <span>eee</span>
-      <Modal setIsModal={setIsModal} isModal={isModal}>
-        <h2>Hello from Modal!</h2>
-        <MdClose
-          className='close-btn'
-          color='red'
-          onClick={() => setIsModal(false)}
-        />
-      </Modal>
     </div>
   )
 }

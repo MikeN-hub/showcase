@@ -1,11 +1,14 @@
 import React, { useState, useRef } from 'react'
+import { MdClose } from 'react-icons/md'
+
 import './Modal.scss'
 
 const Modal = ({ children, setIsModal, isModal }) => {
   const modalRef = useRef()
-  console.log(modalRef.current)
   const closeModal = (e) => {
+    console.log(modalRef.current)
     if (e.target === modalRef.current) {
+      console.log('yes')
       setIsModal(false)
     } else return
   }
@@ -13,7 +16,10 @@ const Modal = ({ children, setIsModal, isModal }) => {
   return (
     isModal && (
       <div className='Modal' ref={modalRef} onClick={closeModal}>
-        <div className='container'>{children}</div>
+        <div className='container'>
+          {children}
+          <MdClose color='red' className='close-btn' onClick={() => console.log('closed')}/>
+        </div>
       </div>
     )
   )
