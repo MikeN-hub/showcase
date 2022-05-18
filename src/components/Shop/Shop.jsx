@@ -16,17 +16,32 @@ const Shop = () => {
 
   const addToCart = (product) => {
     const productIndex = order.findIndex((item) => item.id === product.id)
-    const newProduct = {
-      ...product,
-      quantity: 1,
+    if (productIndex === -1) {
+      const newProduct = {
+        ...product,
+        quantity: 1,
+      }
+      setOrder([newProduct, ...order])
+    } else {
+      const newOrder = order.map((item, index) => {
+        if (index === productIndex) {
+          return { ...item, quantity: item.quantity + 1 }
+        } else {
+          return item
+        }
+      })
+      setOrder(newOrder)
     }
-
-    setOrder([newProduct, ...order])
   }
 
-  const showCartHandle = () => {
-    setIsShowCart(!isShowCart)
+  const removeFromCart = (id) => {
+    const newOrder = order.filter((item) => item.id !== id)
+    setOrder(newOrder)
   }
+
+  // const showCartHandle = () => {
+  //   setIsShowCart(!isShowCart)
+  // }
 
   useEffect(() => {
     const getProducts = async () => {
@@ -43,14 +58,29 @@ const Shop = () => {
 
   return (
     <div className='Shop'>
-      <ProductList products={products} addToCart={addToCart} />
-      <BsCart
-        className='cart-icon'
-        color='green'
-        size={50}
-        onClick={showCartHandle}
+      <ProductList
+        products={products}
+        addToCart={addToCart}
+        removeFromCart={removeFromCart}
       />
-      {isShowCart && <Cart showCartHandle={showCartHandle} />}
+      <div className='cart-icon'>
+        <BsCart
+          className='cart-icon'
+          color='green'
+          size={50}
+          onClick={() => setIsShowCart(true)}
+        />
+        <span className='cart-num'>{order.length}</span>
+      </div>
+
+      {isShowCart && (
+        <Cart
+          setIsShowCart={setIsShowCart}
+          order={order}
+          setOrder={setOrder}
+          removeFromCart={removeFromCart}
+        />
+      )}
     </div>
   )
 }

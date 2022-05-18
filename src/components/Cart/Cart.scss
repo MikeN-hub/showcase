@@ -13,10 +13,22 @@
     width: 600px;
     height: 400px;
     background-color: #fff;
+    animation: showCart 1s ease-in-out;
+
+    @keyframes showCart {
+      from {
+        opacity: 0;
+        top: 70%
+      }
+      to {
+        opacity: 1;
+        top: 30%
+      }
+    }
     .close-btn {
       position: absolute;
-      top: 1rem;
-      right: 1rem;
+      top: .5rem;
+      right: .5rem;
       cursor: pointer;
     }
   }

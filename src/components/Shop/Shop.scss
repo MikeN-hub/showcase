@@ -3,9 +3,31 @@
   height: calc(100vh - 50px - 50px - 40px);
   margin: 20px auto;
   .cart-icon {
+    width: 60px;
+    height: 60px;
     position: fixed;
     top: 4rem;
-    right: 4rem;
+    right: 1rem;
     cursor: pointer;
+    .cart-num {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: rgb(207, 188, 15);
+      display: grid;
+      place-items: center;
+      animation: num .5s ease-in-out;
+      @keyframes num {
+        from {
+          font-size: 1rem;
+        }
+        to {
+          font-size: 1.5rem;
+        }
+      }
+    }
   }
 }
