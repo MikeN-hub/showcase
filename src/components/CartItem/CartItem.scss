@@ -1,15 +1,40 @@
 .CartItem {
   display: flex;
-  gap: 20px;
+  gap: 30px;
   align-items: center;
   justify-content: space-between;
   height: 30px;
   background-color: rgb(247, 243, 243);
   padding: 0 10px;
+  font-size: 1.5rem;
   .product-name {
-    width: 350px;
+    min-width: 300px;
   }
-  svg {
-    cursor: pointer;
+  .product-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    min-width: 400px;
+    .col {
+      width: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+    .quantity {
+    }
+    .price {
+      justify-content: space-evenly;
+    }
+    .sum {
+      justify-content: flex-end;
+    }
   }
+}
+svg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }

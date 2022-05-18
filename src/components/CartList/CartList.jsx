@@ -2,13 +2,13 @@ import React from 'react'
 import CartItem from '../CartItem/CartItem'
 import './CartList.scss'
 
-const CartList = ({ order, removeFromCart }) => {
+const CartList = ({ order, removeFromCart, plusQuantity, minusQuantity }) => {
   let totalPrice = order.reduce((total, current) => {
     return total + current.price.regularPrice * current.quantity
   }, 0)
   return (
     <div className='CartList'>
-      <h2>Your Order:</h2>
+      <h2>Корзина</h2>
       {order.length > 0 ? (
         <>
           <ul className='wrapper'>
@@ -18,6 +18,8 @@ const CartList = ({ order, removeFromCart }) => {
                   key={product.id}
                   product={product}
                   removeFromCart={removeFromCart}
+                  plusQuantity={plusQuantity}
+                  minusQuantity={minusQuantity}
                 />
               )
             })}

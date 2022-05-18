@@ -19,15 +19,6 @@
       color: rgb(207, 188, 15);
       display: grid;
       place-items: center;
-      animation: num .5s ease-in-out;
-      @keyframes num {
-        from {
-          font-size: 1rem;
-        }
-        to {
-          font-size: 1.5rem;
-        }
-      }
     }
   }
 }

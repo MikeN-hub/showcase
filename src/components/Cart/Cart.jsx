@@ -4,22 +4,33 @@ import CartList from '../CartList/CartList'
 
 import './Cart.scss'
 
-const Cart = ({ setIsShowCart, order, setOrder, removeFromCart }) => {
+const Cart = ({
+  setIsShowCart,
+  order,
+  setOrder,
+  removeFromCart,
+  plusQuantity,
+  minusQuantity
+}) => {
   const containerElemRef = useRef()
   const clickHandle = (e) => {
-    console.log(containerElemRef.current)
-    console.log(e.target)
-    if (e.target === containerElemRef.current) {
+    if (e.target !== containerElemRef.current) {
       return
     } else setIsShowCart(false)
   }
   return (
-    <div className='Cart'>
-      <div className='container' ref={containerElemRef}>
-        <CartList order={order} setOrder={setOrder} removeFromCart={removeFromCart}/>
+    <div className='Cart' ref={containerElemRef} onClick={clickHandle}>
+      <div className='container'>
+        <CartList
+          order={order}
+          setOrder={setOrder}
+          removeFromCart={removeFromCart}
+          plusQuantity={plusQuantity}
+          minusQuantity={minusQuantity}
+        />
         <MdClose
           className='close-btn'
-          color='orange'
+          color='white'
           size='1.5rem'
           onClick={() => setIsShowCart(false)}
         />
