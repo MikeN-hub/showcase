@@ -1,0 +1,15 @@
+.CartItem {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  height: 30px;
+  background-color: rgb(247, 243, 243);
+  padding: 0 10px;
+  .product-name {
+    width: 350px;
+  }
+  svg {
+    cursor: pointer;
+  }
+}
