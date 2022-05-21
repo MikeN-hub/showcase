@@ -10,7 +10,7 @@ const Header = () => {
         </div>
         <nav>
           <div className='repo'>
-            <span>Repo</span>
+            <a href='https://miken-hub.github.io/showcase/'>Repo</a>
           </div>
         </nav>
       </div>

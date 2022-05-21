@@ -1,5 +1,4 @@
 import React from 'react'
-import { MdClose } from 'react-icons/md'
 import { AiOutlinePlus } from 'react-icons/ai'
 import { AiOutlineMinus } from 'react-icons/ai'
 import { MdDeleteForever } from 'react-icons/md'

@@ -9,6 +9,7 @@
   font-size: 1.5rem;
   .product-name {
     min-width: 300px;
+    white-space: nowrap;
   }
   .product-info {
     display: flex;
@@ -16,13 +17,12 @@
     justify-content: space-between;
     gap: 20px;
     min-width: 400px;
+    margin-left: auto;
     .col {
       width: 150px;
       display: flex;
       align-items: center;
       justify-content: space-around;
-    }
-    .quantity {
     }
     .price {
       justify-content: space-evenly;
@@ -37,4 +37,24 @@ svg {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+
+@media screen and (max-width: 1100px) {
+  .CartItem {
+    font-size: 1rem;
+    gap: 5px;
+    .product-name {
+      min-width: 0;
+      white-space: nowrap;
+    }
+    .product-info {
+      min-width: 0;
+      gap: 5px;
+      margin-left: auto;
+      .col {
+        width: auto;
+        white-space: nowrap;
+      }
+    }
+  }
 }

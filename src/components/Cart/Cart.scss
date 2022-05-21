@@ -49,3 +49,16 @@
     }
   }
 }
+
+@media screen and (max-width: 1100px) {
+  .Cart {
+    .container {
+      .checkout {
+        height: 20px;
+        .purchase-btn {
+          bottom: .5rem;
+        }
+      }
+    }
+  }
+}

@@ -1,13 +1,13 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import './Hint.scss'
 
 const Hint = ({ closeHint, hintName }) => {
-  let timerIdValue = useRef()
   useEffect(() => {
-    timerIdValue = setTimeout(closeHint, 3000)
+    const timerId = setTimeout(closeHint, 3000)
     return () => {
-      clearInterval(timerIdValue.current)
+      clearInterval(timerId)
     }
+  // eslint-disable-next-line
   }, [hintName])
 
   return (
