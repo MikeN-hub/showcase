@@ -15,7 +15,6 @@ const Shop = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [order, setOrder] = useState([])
   const [isShowCart, setIsShowCart] = useState(false)
-  // const [isShowHint, setisShowHint] = useState(false)
   const [hintName, setHintName] = useState('');
 
   const addToCart = (product) => {
