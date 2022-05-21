@@ -1,7 +1,7 @@
 .Shop {
   width: 80%;
-  height: calc(100vh - 50px - 50px - 40px);
   margin: 20px auto;
+  min-height: calc(100vh - 140px);
   .cart-icon {
     width: 60px;
     height: 60px;

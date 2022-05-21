@@ -10,6 +10,10 @@ const Product = ({ product, addToCart }) => {
     price,
   } = product
 
+  const buyHandler = () => {
+    addToCart({ id, name, price })
+  }
+
   return (
     <div className='Product'>
       <div className='image'>
@@ -20,7 +24,7 @@ const Product = ({ product, addToCart }) => {
         <p className='description'>{description}</p>
       </div>
       <div className='price'>
-        <button onClick={() => addToCart({ id, name, price })}>Купить</button>
+        <button onClick={buyHandler}>Купить</button>
         <span>{price.regularPrice} руб.</span>
       </div>
     </div>

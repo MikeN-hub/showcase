@@ -10,7 +10,7 @@ const Cart = ({
   setOrder,
   removeFromCart,
   plusQuantity,
-  minusQuantity
+  minusQuantity,
 }) => {
   const containerElemRef = useRef()
   const clickHandle = (e) => {
@@ -18,6 +18,12 @@ const Cart = ({
       return
     } else setIsShowCart(false)
   }
+
+ const submitHandler = (e) => {
+   e.preventDefault()
+   console.log('the order has been sent')
+ }
+
   return (
     <div className='Cart' ref={containerElemRef} onClick={clickHandle}>
       <div className='container'>
@@ -34,6 +40,13 @@ const Cart = ({
           size='1.5rem'
           onClick={() => setIsShowCart(false)}
         />
+        { order.length > 0 &&
+          <form className='checkout' onSubmit={submitHandler}>
+            <button type='submit' className='purchase-btn'>
+              Оформить заказ
+            </button>
+          </form>
+        }
       </div>
     </div>
   )

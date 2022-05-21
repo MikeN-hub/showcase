@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import ProductList from '../ProductList/ProductList'
 import Cart from '../Cart/Cart'
+import Hint from '../Hint/Hint'
 import { BsCart } from 'react-icons/bs'
+import Loader from '../Loader/Loader'
 
 import './Shop.scss'
 
@@ -10,9 +12,11 @@ const API_KEY = process.env.REACT_APP_API_KEY
 
 const Shop = () => {
   const [products, setProducts] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
   const [order, setOrder] = useState([])
   const [isShowCart, setIsShowCart] = useState(false)
+  // const [isShowHint, setisShowHint] = useState(false)
+  const [hintName, setHintName] = useState('');
 
   const addToCart = (product) => {
     const productIndex = order.findIndex((item) => item.id === product.id)
@@ -32,6 +36,7 @@ const Shop = () => {
       })
       setOrder(newOrder)
     }
+    setHintName(product.name)
   }
 
   const removeFromCart = (id) => {
@@ -58,6 +63,10 @@ const Shop = () => {
     setOrder(newOrder)
   }
 
+  const closeHint = () => {
+    setHintName('')
+  }
+
   useEffect(() => {
     const getProducts = async () => {
       const res = await fetch(API_URL, {
@@ -67,12 +76,14 @@ const Shop = () => {
       })
       const data = await res.json()
       setProducts(data.shop)
+      setIsLoading(false)
     }
     getProducts()
   }, [])
 
   return (
     <div className='Shop'>
+      {isLoading && <Loader />}
       <ProductList
         products={products}
         addToCart={addToCart}
@@ -93,6 +104,7 @@ const Shop = () => {
           minusQuantity={minusQuantity}
         />
       )}
+      {hintName && <Hint closeHint={closeHint} hintName={hintName}/>}
     </div>
   )
 }

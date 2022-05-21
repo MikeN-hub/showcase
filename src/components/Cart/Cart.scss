@@ -1,5 +1,5 @@
 .Cart {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
@@ -10,27 +10,41 @@
     top: 30%;
     left: 50%;
     transform: translate(-50%, -30%);
-    // width: 600px;
-    // height: 400px;
     min-width: 400px;
     min-height: 200px;
     background-color: #fff;
     animation: showCart 1s ease-in-out;
+    .checkout {
+      height: 30px;
+      margin-top: 2rem;
+      .purchase-btn {
+        position: absolute;
+        right: 1rem;
+        bottom: 1rem;
+        padding: 0.5rem;
+        background-color: rgb(49, 207, 141);
+        border: none;
+        color: white;
+        font-weight: bold;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+    }
 
     @keyframes showCart {
       from {
         opacity: 0;
-        top: 50%
+        top: 50%;
       }
       to {
         opacity: 1;
-        top: 30%
+        top: 30%;
       }
     }
     .close-btn {
       position: absolute;
-      top: .5rem;
-      right: .5rem;
+      top: 0.5rem;
+      right: 0.5rem;
       cursor: pointer;
     }
   }
